@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant Name — Home</title>
+  <meta name="description" content="Restaurant Name — Fresh local cuisine. View our menu, hours, and make a reservation." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="home.html" class="logo" aria-label="Restaurant Name homepage">
+        <!-- Logo file found in images/ -->
+           <img src="images/logo.jpg" alt="Restaurant Name logo" width="200" height="190">
+      </a>
+
+      <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
+        <ul id="primary-navigation" class="nav-list">
+          <li><a href="home.html" aria-current="page">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="site-main" role="main">
+    <section class="hero">
+      <!-- Use dining_room image as the hero (images/dining_room.jpg) -->
+      <img
+        src="images/dining_room.jpg"
+        srcset="images/dining_room.jpg 200px"
+        sizes="100vw"
+        alt="Interior of the dining room with wooden tables and warm lighting"
+        class="hero-image"
+      >
+      <div class="hero-content container">
+        <h1 class="site-title">Restaurant Name</h1>
+        <p class="tagline">Seasonal, local ingredients — cooked with care.</p>
+        <p class="cta">
+          <a class="btn primary" href="menu.html">See Menu</a>
+          <a class="btn" href="#contact">Reserve</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="about" class="container about">
+      <h2>About Us</h2>
+      <p>We are a neighborhood restaurant focusing on seasonal produce, sustainable seafood, and local meats. Join us for lunch or dinner.</p>
+
+      <!-- Chef portrait added from images/chef.jpg -->
+      <figure class="chef-figure">
+       <img src="images/chef.png" alt="Chef image"width="500" height="500">
+        <figcaption>Our head chef, creating seasonal menus with care.</figcaption>
+      </figure>
+    </section>
+
+    <section class="container menu-preview" aria-labelledby="menu-preview-heading">
+      <h2 id="menu-preview-heading">Featured Dishes</h2>
+
+      <ul class="grid cards" role="list">
+        <li class="card">
+          <article>
+            <img
+              src="images/dish1.jpg"
+              srcset="images/dish1.jpg 800w"
+              sizes="(max-width:600px) 100vw, 33vw"
+              alt="Plated entrée with vegetables and garnish"
+            >
+            <h3>Seasonal Entrée</h3>
+            <p class="price">$18</p>
+            <p>Fresh vegetables, house sauce, and chef's garnish.</p>
+          </article>
+        </li>
+
+        <li class="card">
+          <article>
+            <img
+              src="images/dish2.jpg"
+              srcset="images/dish2.jpg 800w"
+              sizes="(max-width:600px) 100vw, 33vw"
+              alt="Burger with sweet potato fries and dipping sauce on a wooden plate"
+            >
+            <h3>Signature Burger</h3>
+            <p class="price">$15</p>
+            <p>Hand-formed patty, seasonal toppings, served with fries.</p>
+          </article>
+        </li>
+
+        <li class="card">
+          <article>
+            <img
+              src="images/dish3.jpg"
+              srcset="images/dish3.jpg 800w"
+              sizes="(max-width:600px) 100vw, 33vw"
+              alt="Slice of pie with whipped cream on a white plate"
+            >
+            <h3>House Dessert</h3>
+            <p class="price">$8</p>
+            <p>Daily-made dessert, ask your server for today's selection.</p>
+          </article>
+        </li>
+
+        <li class="card">
+          <article>
+            <img
+              src="images/dish4.jpg"
+              srcset="images/dish4.jpg 800w"
+              sizes="(max-width:600px) 100vw, 33vw"
+              alt="Milkshake in a tall glass with a straw"
+            >
+            <h3>Classic Shake</h3>
+            <p class="price">$6</p>
+            <p>Hand-shaken milkshake with seasonal flavors.</p>
+          </article>
+        </li>
+
+        <li class="card">
+          <article>
+            <img
+              src="images/dish5soup.jpg"
+              srcset="images/dish5soup.jpg 800w"
+              sizes="(max-width:600px) 100vw, 33vw"
+              alt="Tomato soup with a grilled sandwich on the side"
+            >
+            <h3>Soup & Sandwich</h3>
+            <p class="price">$12</p>
+            <p>Daily soup with a toasted sandwich — a comforting combo.</p>
+          </article>
+        </li>
+
+        <li class="card">
+          <article>
+            <img
+              src="images/dish6chowder.jpg"
+              srcset="images/dish6chowder.jpg 800w"
+              sizes="(max-width:600px) 100vw, 33vw"
+              alt="Creamy chowder served in a bowl with bread"
+            >
+            <h3>Seafood Chowder</h3>
+            <p class="price">$14</p>
+            <p>Creamy chowder with fresh local seafood and herb oil.</p>
+          </article>
+        </li>
+
+        <li class="card">
+          <article>
+            <img
+              src="images/dish7meatless.jpg"
+              srcset="images/dish7meatless.jpg 800w"
+              sizes="(max-width:600px) 100vw, 33vw"
+              alt="Meatless burger on a bun with roasted vegetables"
+            >
+            <h3>Meatless Burger</h3>
+            <p class="price">$13</p>
+            <p>A plant-based patty with roasted vegetables and house sauce.</p>
+          </article>
+        </li>
+      </ul>
+
+      <p class="more"><a href="menu.html" class="btn">View Full Menu</a></p>
+    </section>
+
+    <section id="gallery" class="container gallery" aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading">Gallery</h2>
+      <p class="visually-hidden">A selection of images from our restaurant and menu.</p>
+
+      <ul class="grid gallery-grid" role="list">
+        <li><img src="images/dining_room.jpg" alt="Dining room with wooden tables and natural light"></li>
+       <li><img src="images/chef2.png" alt="Chef in the kitchen preparing a dish"></li>
+        <li><img src="images/dish1.jpg" alt="Plated entrée with vegetables"></li>
+        <li><img src="images/dish2.jpg" alt="Burger with fries"></li>
+        <li><img src="images/dish3.jpg" alt="Slice of pie on a plate"></li>
+        <li><img src="images/dish4.jpg" alt="Tall milkshake with a straw"></li>
+        <li><img src="images/dish5soup.jpg" alt="Tomato soup with grilled sandwich"></li>
+        <li><img src="images/dish6chowder.jpg" alt="Bowl of chowder with bread"></li>
+        <li><img src="images/dish7meatless.jpg" alt="Meatless burger with roasted vegetables"></li>
+      </ul>
+    </section>
+
+    <section id="contact" class="container contact">
+      <h2>Contact & Hours</h2>
+      <address>
+        123 Main Street<br>
+        City, State ZIP<br>
+        <a href="tel:+15551234567">+1 (555) 123-4567</a>
+      </address>
+
+      <div class="hours">
+        <h3>Hours</h3>
+        <p>Tue–Sun: 11:30am – 9:00pm<br>Closed Mondays</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Restaurant Name — All rights reserved.</p>
+      <nav aria-label="Footer" class="footer-nav">
+        <ul>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Small script for last updated year and mobile nav toggle (keeps JS minimal)
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function() {
+      const btn = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+      // Enable keyboard toggle when focused
+      btn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

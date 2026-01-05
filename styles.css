@@ -1,0 +1,385 @@
+/* styles.css
+   Responsive, accessible stylesheet for Restaurant project
+   - Uses CSS Custom Properties for easy theming
+   - Layout built with Flexbox and CSS Grid
+   - Focus styles, skip link, and utility classes included
+   Breakpoints: 600px (mobile), 900px (tablet)
+*/
+
+/* ============================
+   Variables & Base
+   ============================ */
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --text: #0b0b0b;
+  --muted: #5b5b5b;
+  --accent: #0b6b63;         /* accessible green */
+  --accent-contrast: #ffffff;
+  --border: #e6e6e6;
+  --focus: 3px solid #ffb74d; /* high-visibility focus */
+  --radius: 8px;
+  --container-max: 1200px;
+  --gap: 1rem;
+  --flow: 1.25rem;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  line-height: 1.5;
+}
+
+/* Improve readability */
+h1, h2, h3, h4 { color: var(--text); margin: 0 0 .5rem 0; }
+p, li { margin: 0 0 .75rem 0; }
+
+/* ============================
+   Utility & Accessibility
+   ============================ */
+
+/* Container centers content with horizontal padding */
+.container {
+  width: calc(100% - 2rem);
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 0;
+}
+
+/* Visually hidden for assistive tech */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* Skip link - hidden visually until focused */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus,
+.skip-link:active {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  padding: .5rem .75rem;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border-radius: 4px;
+  text-decoration: none;
+  z-index: 9999;
+}
+
+/* Ensure keyboard focus is always visible */
+:focus {
+  outline: none;
+}
+:focus-visible,
+a:focus,
+button:focus {
+  outline: var(--focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ============================
+   Header & Navigation
+   ============================ */
+.site-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+}
+
+/* Logo */
+.logo img,
+.logo svg {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+/* Nav layout */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-toggle {
+  display: none; /* shown on small screens via media query */
+  background: transparent;
+  border: 1px solid transparent;
+  padding: .5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.nav-list {
+  display: flex;
+  gap: .5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-list a {
+  display: inline-block;
+  padding: .45rem .75rem;
+  text-decoration: none;
+  color: var(--text);
+  border-radius: 6px;
+  font-weight: 500;
+}
+.nav-list a:hover,
+.nav-list a:focus {
+  background: rgba(11,11,11,0.04);
+}
+
+/* Mobile nav open state */
+.nav-list.open {
+  display: flex;
+}
+
+/* ============================
+   Hero
+   ============================ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: #f7f6f4;
+}
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: 560px;
+}
+.hero-content {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 2rem;
+  color: #ffffff;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.5);
+  max-width: 60%;
+}
+.site-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  margin: 0 0 .25rem 0;
+}
+.tagline {
+  margin: 0 0 1rem 0;
+}
+.cta { margin: 0; }
+
+/* ============================
+   Buttons
+   ============================ */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: .5rem .85rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text);
+  background: transparent;
+}
+.btn.primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+.btn:focus { outline: var(--focus); }
+
+/* ============================
+   Featured cards / grid
+   ============================ */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.cards {
+  grid-template-columns: repeat(3, 1fr);
+}
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(10,10,10,0.04);
+}
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.card h3 { margin: .5rem 1rem 0; padding-right: .5rem; }
+.card p { margin: .25rem 1rem 1rem; }
+
+/* Chef figure */
+.chef-figure {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+.chef-photo {
+  width: 160px;
+  height: auto;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* ============================
+   Menu page & items
+   ============================ */
+.menu-grid {
+  grid-template-columns: 1fr;
+}
+.menu-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.menu-item .media img {
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+/* ============================
+   Gallery
+   ============================ */
+.gallery-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* ============================
+   Footer
+   ============================ */
+.site-footer {
+  background: #fafafa;
+  border-top: 1px solid var(--border);
+  padding: 1rem 0;
+}
+.footer-inner {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.footer-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: .75rem;
+}
+
+/* ============================
+   Utilities
+   ============================ */
+.price { color: var(--muted); font-weight: 700; }
+.more { margin-top: 1rem; }
+
+/* ============================
+   Responsive breakpoints
+   ============================ */
+@media (max-width: 900px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-content { max-width: 70%; left: 1rem; bottom: 1.25rem; }
+  .menu-item { grid-template-columns: 100px 1fr; }
+  .chef-photo { width: 120px; }
+}
+
+@media (max-width: 600px) {
+  /* Header / nav */
+  .nav-toggle { display: inline-block; }
+  .nav-list {
+    display: none;
+    position: absolute;
+    right: 1rem;
+    top: 64px;
+    flex-direction: column;
+    background: var(--surface);
+    padding: .75rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    min-width: 180px;
+  }
+  .nav-list.open { display: flex; }
+
+  /* Layout */
+  .header-inner { gap: .5rem; align-items: center; }
+  .cards { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .menu-item { grid-template-columns: 1fr; }
+  .hero-image { max-height: 360px; }
+  .hero-content {
+    position: static;
+    color: var(--text);
+    text-shadow: none;
+    padding: 1rem 0;
+    max-width: 100%;
+  }
+  .logo img { height: 40px; }
+  .chef-figure { flex-direction: column; align-items: flex-start; }
+}
+
+/* Ensure links that look like buttons still announce as links in accessibility tools */
+a[role="button"],
+button[role="link"] { cursor: pointer; }
+
+/* ============================
+   Notes for optimization (not applied in CSS)
+   - Use image srcset in HTML (already present) to serve appropriately sized images.
+   - Prefer SVG for logos where possible.
+   - Compress raster images (Squoosh, ImageOptim).
+   ============================ */

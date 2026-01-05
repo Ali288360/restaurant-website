@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant Name — Menu</title>
+  <meta name="description" content="View the full menu for Restaurant Name — seasonal starters, mains, and desserts." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="home.html" class="logo" aria-label="Restaurant Name homepage">
+    <img src="images/logo.jpg" alt="Restaurant Name logo" width="200" height="190">
+      </a>
+
+      <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
+        <ul id="primary-navigation" class="nav-list">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="menu.html" aria-current="page">Menu</a></li>
+          <li><a href="home.html">About</a></li>
+          <li><a href="home.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="site-main" role="main">
+    <section class="container menu">
+      <h1>Our Menu</h1>
+
+      <div class="grid menu-grid" role="list">
+        <article class="menu-item" role="listitem">
+          <div class="media">
+            <img
+             <li><img src="images/pasta.png" alt="Pasta dish"></li>
+          </div>
+          <div class="meta">
+            <h2>Seared Salmon</h2>
+            <p class="price">$18</p>
+            <p>Pan-seared salmon, seasonal vegetables, lemon-herb butter.</p>
+          </div>
+        </article>
+
+        <article class="menu-item" role="listitem">
+          <div class="media">
+            <img
+              <li><img src="images/pasta.png" alt="Pasta dish"></li>
+          </div>
+          <div class="meta">
+            <h2>Handmade Pasta</h2>
+            <p class="price">$15</p>
+            <p>Fresh linguine, slow-simmered tomato sauce, basil, parmesan.</p>
+          </div>
+        </article>
+
+        <article class="menu-item" role="listitem">
+          <div class="media">
+            <img
+             <li><img src="images/pasta.png" alt="Pasta dish"></li>
+          </div>
+          <div class="meta">
+            <h2>Charred Vegetable Salad</h2>
+            <p class="price">$12</p>
+            <p>Charred seasonal vegetables, citrus vinaigrette, toasted seeds.</p>
+          </div>
+        </article>
+
+        <!-- Add more items as needed -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Restaurant Name</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function() {
+      const btn = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('primary-navigation');
+      if (btn) {
+        btn.addEventListener('click', function() {
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', String(!expanded));
+          nav.classList.toggle('open');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
